@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.7.0/math.min.js"></script>
+
+    <title>Calculadora de Matrizes</title>
+  </head>
+  <body>
+    <aside>
+      <h1>Calculadora de Determinantes e Matrizes</h1>
+      <h2>Seja bem-vindo a um universo de possibilidades matemáticas</h2>
+      <img
+        src="./assets/cat-astronaut-animate.svg"
+        class="astronaut-img"
+        alt="Imagem de um astronauta flutuando no espaço"
+      />
+    </aside>
+
+    <nav>
+      <div>
+        <h1>Calculadoras</h1>
+        <p>
+          Aqui é possível explorar Determinantes e Matrizes inversas,<br />
+          com calculadoras de 3 ordens e a regra de Cramer para determinantes
+          de 4 ordens
+        </p>
+        <br />
+
+        <div id="ordem-tres">
+          <h2>Determinantes ordem 3</h2>
+          <div id="botoes-container">
+            <table>
+              <tr>
+                <td><input type="number" id="det3_a11" /></td>
+                <td><input type="number" id="det3_a12" /></td>
+                <td><input type="number" id="det3_a13" /></td>
+              </tr>
+              <tr>
+                <td><input type="number" id="det3_a21" /></td>
+                <td><input type="number" id="det3_a22" /></td>
+                <td><input type="number" id="det3_a23" /></td>
+              </tr>
+              <tr>
+                <td><input type="number" id="det3_a31" /></td>
+                <td><input type="number" id="det3_a32" /></td>
+                <td><input type="number" id="det3_a33" /></td>
+              </tr>
+            </table>
+            <div id="calcular-ordem-tres">
+              <button onclick="calcularDeterminante3()">Calcular Determinante</button>
+            </div>
+            <p id="det3_resultado"></p>
+          </div>
+        </div>
+        <br>
+        <div id="sistema-quatro">
+          <h2>Resolução de Sistemas Lineares - Ordem 4</h2>
+          <p>Insira o sistema (ax + by +cz + dw = e)</p>
+          <div id="coeficientes">
+            <table>
+              <tr>
+                <td><input type="number" id="mat4_a11" /></td>
+                <td><input type="number" id="mat4_a12" /></td>
+                <td><input type="number" id="mat4_a13" /></td>
+                <td><input type="number" id="mat4_a14" /></td>
+                <td><input type="number" id="mat4_b1" /></td>
+              </tr>
+              <tr>
+                <td><input type="number" id="mat4_a21" /></td>
+                <td><input type="number" id="mat4_a22" /></td>
+                <td><input type="number" id="mat4_a23" /></td>
+                <td><input type="number" id="mat4_a24" /></td>
+                <td><input type="number" id="mat4_b2" /></td>
+              </tr>
+              <tr>
+                <td><input type="number" id="mat4_a31" /></td>
+                <td><input type="number" id="mat4_a32" /></td>
+                <td><input type="number" id="mat4_a33" /></td>
+                <td><input type="number" id="mat4_a34" /></td>
+                <td><input type="number" id="mat4_b3" /></td>
+              </tr>
+              <tr>
+                <td><input type="number" id="mat4_a41" /></td>
+                <td><input type="number" id="mat4_a42" /></td>
+                <td><input type="number" id="mat4_a43" /></td>
+                <td><input type="number" id="mat4_a44" /></td>
+                <td><input type="number" id="mat4_b4" /></td>
+              </tr>
+            </table>
+              <button onclick="resolverSistema()">Resolver Sistema</button>
+            <p id="resultado-sistema"></p>
+          </div>
+        </div>
+        <br>
+        <div id="inversa">
+          <h2>Calculadora de Matriz Inversa</h2>
+          <p>Insira a matriz (linhas e colunas separadas por vírgulas e espaços):</p>
+          <br/>
+          <textarea id="matrixInput" class="center-textarea" rows="4" cols="50" placeholder="Ex:
+1 + i, -2 - 3i, 3 + 2i
+-1 - 2i, 2 + 1i, -2 - i 
+3 - i, -1 + 2i, 4 + 5i"></textarea>
+          <br/>
+          <button onclick="calcularInversa()" >Calcular Matriz Inversa</button>
+          <div id="result-inversa"></div>
+        </div>
+      </div>
+    </nav>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
